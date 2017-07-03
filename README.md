@@ -21,6 +21,6 @@ where test is a folder containing images.
 
 ### Examples
 
-![detectball-examples](http://profs.scienze.univr.it/~bloisi/tutorial/images/detectball-examples.png)
+![detectball-examples](./images/detectball-examples.png)
 
 Please, report bugs to domenico.bloisi@gmail.com
