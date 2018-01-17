@@ -64,7 +64,7 @@ using namespace cv;
 void detectAndDisplay( string& img_filename );
 
 /** Global variables */
-String cascade_name = "ball_cascade.xml";
+string cascade_name = "ball_cascade.xml";
 CascadeClassifier cascade;
 
 string window_name = "SPQR TEAM - ball detection with LBP";
@@ -78,9 +78,16 @@ int main( int argc, const char** argv )
 	if (argc == 2) {
 		dirname.assign(argv[1]);
 	}
+	else if (argc == 4) {
+		dirname.assign(argv[1]);
+                string a2(argv[2]); 
+                if(a2.compare("-c") == 0) {
+                    cascade_name.assign(argv[3]);
+                }
+	}
 	else {
 		cout << "Usage is:" << endl;
-		cout << argv[0] << "<dir name>" << endl;
+		cout << argv[0] << "<dir name> [-c <cascade filename>]" << endl;
 		cout << endl;
 		return EXIT_FAILURE;
 	}
@@ -91,6 +98,9 @@ int main( int argc, const char** argv )
 	if (!cascade.load(cascade_name)) {
 		cout << endl;
 		cout << "--(!)Error loading CASCADE: " << cascade_name << endl;
+                cout << "Please provide the cascade filename" << endl;
+                cout << "example:" << endl;
+                cout << "         detectball ../test -c ../ball_cascade.xml" << endl;
 		return EXIT_FAILURE;
 	}
 	else {
