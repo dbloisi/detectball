@@ -71,7 +71,7 @@ string window_name = "SPQR TEAM - ball detection with LBP";
 
 int main( int argc, const char** argv )
 {
-	String dirname;
+	string dirname;
 	cout << "SPQR TEAM - ball detection with LBP" << endl;
 	cout << endl;	
 
