@@ -6,7 +6,7 @@
 *
 *  This file is part of the tutorial
 *  "How to Use OpenCV for Ball Detection" by Domenico D. Bloisi
-*  http://profs.scienze.univr.it/~bloisi/tutorial/balldetection.html
+*  http://web.unibas.it/bloisi/tutorial/balldetection.html
 *  and it is distributed under the terms of the
 *  GNU Lesser General Public License (Lesser GPL)
 *
@@ -197,7 +197,7 @@ int main( int argc, const char** argv )
 void detectAndDisplay(string& img_filename)
 {
 	Mat frame;
-	frame = imread(img_filename, CV_LOAD_IMAGE_COLOR);
+	frame = imread(img_filename, IMREAD_COLOR);
 	if (!frame.data) {
 		cout << "Unable to read input frame: " << img_filename << endl;
 		exit(EXIT_FAILURE);
@@ -210,7 +210,7 @@ void detectAndDisplay(string& img_filename)
     std::vector<Rect> balls;
     Mat frame_gray;
 
-    cvtColor( frame, frame_gray, CV_BGR2GRAY );
+    cvtColor( frame, frame_gray, COLOR_BGR2GRAY );
     cascade.detectMultiScale(frame_gray, balls, 1.1, 5, 8, Size(16, 16));
 
    Mat gui_frame = frame.clone();
@@ -223,5 +223,5 @@ void detectAndDisplay(string& img_filename)
 
    //-- Show what you got
    imshow( window_name, gui_frame );
-   int key = cvWaitKey(0);
+   int key = waitKey(0);
 }
